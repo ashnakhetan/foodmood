@@ -1,40 +1,109 @@
 .app {
-	display: flex;
-	height: 100vh;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .app__container {
-	margin-top: 10px;
-	width: 500px;
-	height: 500px;
-	border: 1px solid #000;
+  margin-top: 10px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #000;
 }
 .opening-page {
-	/*display: flex;*/
-	justify-content: center;
-	align-items: center;
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
 }
 .opening-page__container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .btn {
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	display: inline-block;
-	padding: 10px 20px;
-	border: 1px solid;
-	border-radius: 4px;
-	background: rgb(110, 198, 198);
-	color: #fff;
-	font-family: arial;
-	-webkit-transition: background-color 0.1s, color 0.1s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 4px;
+  background: rgb(110, 198, 198);
+  color: #fff;
+  font-family: arial;
+  -webkit-transition: background-color 0.1s, color 0.1s;
 }
 .app__input {
-	margin-top: 10px;
+  margin-top: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.app {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__container {
+  margin-top: 10px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #000;
+  display: flex;
+}
+
+.opening-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.opening-page__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* food info (ONLY SHOW WHEN FOOD IS DETECTED)*/
+.food-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.food-info-container h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+.food-info-container__body {
+  height: 10rem;
+  background-color: white;
+  border: 1px solid #000;
+  display: flex;
+  color: white;
+}
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 4px;
+  background: rgb(110, 198, 198);
+  color: #fff;
+  font-family: arial;
+  -webkit-transition: background-color 0.1s, color 0.1s;
+}
+.app__input {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
 }

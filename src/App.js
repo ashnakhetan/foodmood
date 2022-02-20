@@ -64,6 +64,7 @@ import ml5 from "ml5";
 import useInterval from '@use-it/interval';
 
 import Food from './Food';
+import List from './List';
 
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./App.css";
@@ -153,8 +154,13 @@ function App() {
 				</div>
 			</div>
 			{result.length > 0 && (
-				<div className="results">
-					<Food data={result} />
+				<div>
+					<div className="results">
+						<Food data={result} />
+					</div>
+					<div className="results">
+						<List data={result} />
+					</div>
 				</div>
 			)}
 		</div>
