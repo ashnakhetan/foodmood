@@ -1,61 +1,3 @@
-// import React, { useState} from 'react';
-// import './App.css';
-
-// function App() {
-// 	const [playing, setPlaying] = useState(false);
-
-// 	const HEIGHT = 500;
-// 	const WIDTH = 500;
-
-// 	const startVideo = () => {
-// 		setPlaying(true);
-// 		navigator.getUserMedia(
-// 			{
-// 				video: true,
-// 			},
-// 			(stream) => {
-// 				let video = document.getElementsByClassName('app__videoFeed')[0];
-// 				if (video) {
-// 					video.srcObject = stream;
-// 				}
-// 			},
-// 			(err) => console.error(err)
-// 		);
-// 	};
-
-// 	const stopVideo = () => {
-// 		setPlaying(false);
-// 		let video = document.getElementsByClassName('app__videoFeed')[0];
-// 		video.srcObject.getTracks()[0].stop();
-// 	};
-
-// 	return (
-// 		<div className="app">
-// 			<div className="opening-page" style = {{display: !playing ? 'block' : 'none'}}>
-// 				<div className="opening-page__container">
-// 					<h1 className="font-medium leading-tight text-5xl mt-0 mb-2 bg-black">welkmcsoadmdkos</h1>
-// 					<a className="btn" onClick= {startVideo}>Click here to learn more!</a>
-// 				</div>
-// 			</div>
-// 			<div className="app__container" style = {{display: playing ? 'block' : 'none'}}>
-// 				<video
-// 					height={HEIGHT}
-// 					width={WIDTH}
-// 					muted
-// 					autoPlay
-// 					className="app__videoFeed"
-// 				></video>
-// 			</div>
-// 			<div className="app__input" style = {{display: playing ? 'block' : 'none'}}>
-// 				{playing ? (
-// 					<button onClick={stopVideo}>Stop</button>
-// 				) : (
-// 					<button onClick={startVideo}>Start</button>
-// 				)}
-// 			</div>
-// 		</div>
-// 	);
-// }
 
 // export default App;
 import React, { useEffect, useRef, useState } from "react";
@@ -133,36 +75,38 @@ function App() {
 		<div className="app">
 			<div className="upper">
 				<div className="app__container">
-					<div className="opening-page">
+					<div className="opening-page" style = {{display: !start ? 'block' : 'none'}}>
 						<div className="opening-page__container">
-							<h1 className="font-medium leading-tight text-5xl mt-0 mb-2 bg-black">FoodMood</h1>
+							<h1 className="h1">FoodMood</h1>
 							{/* <a className="btn" onClick={start}>Click here to learn more!</a> */}
 						</div>
 					</div>
+					<div className = "video">
 					<video
 						ref={videoRef}
-						style={{ transform: "scale(-1, 1)" }}
+						style={{ transform: "scale(-1, 1)" }, {display: start ? 'block' : 'none'}}
 						width="500"
-						height="500"
+						height="300"
 						className="app__videoFeed"
 					/>
+					{result.length > 0 && (
+						<div className="results">
+							<List data={result} />
+						</div>
+					)}
+					</div>
 					{loaded && (
-						<button className="app__input" onClick={() => toggle()}>
-							{start ? "Pause Detection" : "Capture food!"}
+						<button className="button" onClick={() => toggle()}>
+							{start ? "Go back" : "Capture food!"}
 						</button>
+					)}
+					{result.length > 0 && (
+						<div className="results">
+							<Food data={result} />
+						</div>
 					)}
 				</div>
 			</div>
-			{result.length > 0 && (
-				<div>
-					<div className="results">
-						<Food data={result} />
-					</div>
-					<div className="results">
-						<List data={result} />
-					</div>
-				</div>
-			)}
 		</div>
 	);
 }

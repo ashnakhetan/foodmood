@@ -21,7 +21,7 @@ const List = (props) => {
     return (
         <>
             <ul className="food">
-                <p>Go look for these items and hold them up in front of the camera!</p>
+                <p className="bold">Go look for these items and hold them up in front of the camera!</p>
                 {sortedLabels.map((label) => (
                     <li key={label}>
                         <span>
